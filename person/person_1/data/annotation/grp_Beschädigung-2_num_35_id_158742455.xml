@@ -1,0 +1,26 @@
+<annotation>
+	<folder>img</folder>
+	<filename>grp_Beschädigung-2_num_35_id_158742455.jpg</filename>
+	<path>./person/person_1/data/img/grp_Beschädigung-2_num_35_id_158742455.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>960</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>verkratzt / verschürft</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>417</xmin>
+			<ymin>298</ymin>
+			<xmax>789</xmax>
+			<ymax>419</ymax>
+		</bndbox>
+	</object>
+</annotation>
