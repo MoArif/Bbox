@@ -1,11 +1,8 @@
 verkratzt / verschürft
 delle / lackschaden
-verschmutzt
+dellen
+kratzer
 gebrochen / gerissen
+steinschlag
 verformt
-verschlissen
-korrosion
-abrieb
-lackmangel
-marderschaden
-brandloch
+nothing
