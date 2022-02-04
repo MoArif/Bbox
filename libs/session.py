@@ -25,14 +25,14 @@ class Session():
         print("THE REMAIN are =", self.remain)
 
     def read_data_csv(self):
-        df = pd.read_csv(self.csv_file, sep="|")
+        df = pd.read_csv(self.csv_file, sep=",")
         df = df.sort_values(by=['status', 'uid'])
         df = df.sort_values(by=['dirty', 'status'])
         #print(df[['img_file_path','part_en','damage_en', 'action_en']].head())
         return df
 
     def write_data_csv(self):
-        self.data_file.to_csv(self.csv_file, sep="|", index=False)
+        self.data_file.to_csv(self.csv_file, sep=",", index=False)
 
     def read_json(self):
         with open(self.json_file, 'r') as f:

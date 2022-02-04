@@ -22,6 +22,7 @@ except ImportError:
     # Ref:
     # http://pyqt.sourceforge.net/Docs/PyQt4/incompatible_apis.html
     # http://stackoverflow.com/questions/21217399/pyqt4-qtcore-qvariant-object-instead-of-a-string
+    print('Using PyQT4')
     if sys.version_info.major >= 3:
         import sip
         sip.setapi('QVariant', 2)
@@ -77,13 +78,15 @@ class WindowMixin(object):
             img_name = self.filePath.split("/")[-1]
             ind = self.session.data_file.index[self.session.data_file['bildname'] == img_name ].tolist()
             print("STATE CHANGE Ind = ", ind, ' img_name=', img_name)
-            self.session.data_file.set_value(ind[0],'dirty', True)
+            #self.session.data_file.set_value(ind[0],'dirty', True)
+            self.session.data_file.at[ind[0],'dirty']= True
         else:
             print('DIF B= ', difficult)
             img_name = self.filePath.split("/")[-1]
             ind = self.session.data_file.index[self.session.data_file['bildname'] == img_name ].tolist()
             print("STATE CHANGE Ind = ", ind, ' img_name=', img_name)
-            self.session.data_file.set_value(ind[0],'dirty', False)
+            #self.session.data_file.set_value(ind[0],'dirty', False)
+            self.session.data_file.at[ind[0],'dirty'] = False
 
 
     def menu(self, title, actions=None):
@@ -881,11 +884,13 @@ class MainWindow(QMainWindow, WindowMixin):
         if len(shapes) == 0:
             ind = self.session.data_file.index[self.session.data_file['bildname'] == img_name ].tolist()
             #print("Status FALSE ",ind[0])
-            self.session.data_file.set_value(ind[0],'status', False)
+            #self.session.data_file.set_value(ind[0],'status', False)
+            self.session.data_file.at[ind[0],'status'] = False
         else:
             ind = self.session.data_file.index[self.session.data_file['bildname'] == img_name ].tolist()
             #print("Status TRUE ", ind[0])
-            self.session.data_file.set_value(ind[0],'status', True)
+            #self.session.data_file.set_value(ind[0],'status', True)
+            self.session.data_file.at[ind[0],'status'] = True
         # Can add differrent annotation formats here
         try:
             if self.usingPascalVocFormat is True:
@@ -1635,6 +1640,7 @@ def get_main_app(argv=[]):
     app.setWindowIcon(newIcon("app"))
     # Tzutalin 201705+: Accept extra agruments to change predefined class file
     # Usage : labelImg.py image predefClassFile saveDir
+    print(argv)
     win = MainWindow(argv[1] if len(argv) >= 2 else None,
                      argv[2] if len(argv) >= 3 else os.path.join(
                          os.path.dirname(sys.argv[0]),

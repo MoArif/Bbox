@@ -1,0 +1,26 @@
+<annotation>
+	<folder>image</folder>
+	<filename>2020223822-Beschädigung-2-37.jpg</filename>
+	<path>./person/test/image/2020223822-Beschädigung-2-37.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>960</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>kratzer</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>414</xmin>
+			<ymin>453</ymin>
+			<xmax>727</xmax>
+			<ymax>555</ymax>
+		</bndbox>
+	</object>
+</annotation>

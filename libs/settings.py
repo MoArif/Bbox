@@ -8,6 +8,8 @@ class Settings(object):
         home = os.path.expanduser("~")
         self.data = {}
         self.path = os.path.join(home, '.labelImgSettings.pkl')
+        self.LabelFileFormat = None
+        print(self.path)
 
     def __setitem__(self, key, value):
         self.data[key] = value
@@ -28,6 +30,7 @@ class Settings(object):
         return False
 
     def load(self):
+        print(self.path)
         if os.path.exists(self.path):
             with open(self.path, 'rb') as f:
                 self.data = pickle.load(f)
